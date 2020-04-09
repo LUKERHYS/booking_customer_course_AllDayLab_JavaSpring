@@ -12,4 +12,6 @@ public interface CourseRepository extends JpaRepository<Course, Long> {
 
     List<Course> findByRating(Integer rating);
 
+    public List<Course> findAllByBookingsCustomerId(Long customerId);
+
 }

@@ -47,6 +47,13 @@ class CourseBookingSystemApplicationTests {
 	}
 
 	@Test
+	public void canGetCoursesByCustomer(){
+		List<Course> foundCourses = courseRepository.findAllByBookingsCustomerId(2L);
+		assertEquals(1, foundCourses.size());
+		assertEquals("Ruby", foundCourses.get(0).getName());
+	}
+
+	@Test
 	public void canGetCoursesByDate(){
 		List<Booking> foudnBookings = bookingRepository.findByDate("13-03-2017");
 		assertEquals(2, foudnBookings.size());
