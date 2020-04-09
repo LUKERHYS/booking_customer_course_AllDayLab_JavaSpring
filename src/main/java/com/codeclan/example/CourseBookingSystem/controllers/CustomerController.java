@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -16,7 +17,12 @@ public class CustomerController {
     CustomerRepository customerRepository;
 
     @GetMapping
-    public ResponseEntity getAllCustomers(){
+    public ResponseEntity getAllCustomers(
+            @RequestParam(required = false, name = "courseId") Long courseId
+    ){
+        if(courseId != null){
+            return new ResponseEntity(customerRepository.findAllByBookingsCourseId(courseId), HttpStatus.OK);
+        }
         return new ResponseEntity<>(customerRepository.findAll(), HttpStatus.OK);
     }
 }
