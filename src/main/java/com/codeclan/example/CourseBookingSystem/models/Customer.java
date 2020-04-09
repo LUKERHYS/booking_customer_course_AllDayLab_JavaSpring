@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name="customers")
+@Table(name = "customers")
 public class Customer {
 
     @Id
@@ -24,7 +24,7 @@ public class Customer {
     private Integer age;
 
     @JsonBackReference
-    @OneToMany(mappedBy = "customers")
+    @OneToMany(mappedBy = "customer")
     private List<Booking> bookings;
 
     public Customer(String name, String town, Integer age) {

@@ -1,7 +1,5 @@
 package com.codeclan.example.CourseBookingSystem.models;
 
-import com.sun.javafx.beans.IDProperty;
-import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
 
